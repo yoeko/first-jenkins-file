@@ -1,21 +1,18 @@
 pipeline {
-    
-    agent any
-    
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
+   agent any
 
-        stage ('Build') {
+   stages {
+      stage('Hello') {
+         steps {
+            echo 'Hello World'
+         }
+      }
+       
+       stage ('Build') {
             steps {
                 mvn test
             }
         }
-    }
+       
+   }
 }
