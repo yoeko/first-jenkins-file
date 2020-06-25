@@ -1,8 +1,6 @@
 node{
   stage ('Build') {
 
-    git url: 'https://github.com/yoeko/tp6maven.git'
-
     withMaven() {
 
       bat "mvn package"
