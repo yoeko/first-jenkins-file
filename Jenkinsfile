@@ -1,4 +1,4 @@
-node ("linux") {
+node{
   stage ('Build') {
 
     git url: 'https://github.com/yoeko/tp6maven.git'
