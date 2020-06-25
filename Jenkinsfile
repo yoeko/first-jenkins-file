@@ -1,19 +1,12 @@
-pipeline {
-   agent any
-   
-   stages {
-      stage('Mvn package') {
-         steps {
-            mvn package
-         }
-      }
-   }
+node ("linux") {
+  stage ('Build') {
 
-   stages {
-      stage('Hello') {
-         steps {
-            echo 'Hello World'
-         }
-      }
-   }
+    git url: 'https://github.com/yoeko/tp6maven.git'
+
+    withMaven(...) {
+
+      bat "mvn package"
+
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 }
